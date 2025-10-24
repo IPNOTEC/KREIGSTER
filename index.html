@@ -65,12 +65,6 @@
             width: 100%;
         }
 
-        .section {
-            padding: var(--section-padding) 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
         .dark {
             background: var(--dark-bg);
             color: var(--text-light);
@@ -451,6 +445,28 @@
             border-left: 4px solid var(--success);
         }
 
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 105, 0, 0.3);
+            font-weight: 600;
+        }
+
+        .comparison-table .highlight {
+            background: rgba(0, 204, 153, 0.2);
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -509,7 +525,7 @@
             <div class="team-header">TEAM WARRIORS</div>
             <div class="container">
                 <div class="section-header">
-                    <h2>Kreigster Streetwear</h2>
+                    <h2>Kreigster Streetwear - Investment Summary</h2>
                     <div class="section-subtitle">Sustainable Fashion for the Modern Indian Youth</div>
                 </div>
 
@@ -759,10 +775,54 @@
                 </div>
 
                 <div class="highlight-box ideal-strategy">
-                    <h3>Ideal Strategy: Balanced Approach</h3>
-                    <p><strong>Why this approach:</strong> Start with SAFE/Convertible Notes from angel + micro VC for quick capital, while bringing 1-2 strategic angels for mentorship. This provides immediate funds (₹15-20L) while building the right advisory network.</p>
-                    <p><strong>Timeline:</strong> Use traction to unlock follow-on equity round within 12-18 months at improved valuation.</p>
-                    <p><strong>Target Mix:</strong> 70% immediate capital, 20% expertise, 10% speed-focused investors</p>
+                    <h3>Kreigster's Ideal Strategy: Balanced Approach</h3>
+                    <p>We're implementing a balanced approach that combines the benefits of all three strategies while mitigating their individual limitations.</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Strategy Element</th>
+                                <th>Allocation</th>
+                                <th>Target Investors</th>
+                                <th>Expected Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="highlight">
+                                <td>Immediate Capital</td>
+                                <td>₹20-25L (60%)</td>
+                                <td>Micro VCs, Angel Networks</td>
+                                <td>Quick runway for inventory & marketing</td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Strategic Expertise</td>
+                                <td>₹8-10L (25%)</td>
+                                <td>Fashion Industry Angels</td>
+                                <td>Mentorship & network access</td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Speed Focus</td>
+                                <td>₹5-7L (15%)</td>
+                                <td>Founder-friendly VCs</td>
+                                <td>Fast decision-making & minimal bureaucracy</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total Funding</strong></td>
+                                <td><strong>₹33-42L</strong></td>
+                                <td><strong>Mix of 5-7 investors</strong></td>
+                                <td><strong>18-month runway with strategic support</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>Why This Approach Works for Kreigster:</h4>
+                    <ul>
+                        <li><strong>Capital Efficiency:</strong> 60% immediate funds ensure we can execute without delays</li>
+                        <li><strong>Strategic Alignment:</strong> 25% from industry experts provides crucial fashion industry insights</li>
+                        <li><strong>Operational Speed:</strong> 15% from founder-friendly VCs enables quick pivots and scaling</li>
+                        <li><strong>Risk Mitigation:</strong> Diversified investor base reduces dependency on any single source</li>
+                        <li><strong>Future Fundraising:</strong> Balanced cap table makes us attractive for Series A investors</li>
+                    </ul>
                 </div>
             </div>
             <div class="progress-bar"><div class="progress" style="width: 66.4%;"></div></div>
@@ -1049,41 +1109,44 @@
                 }
             });
 
-            // Strategy Chart
+            // Strategy Chart - Updated to simple bar chart
             const strategyCtx = document.getElementById('strategyChart').getContext('2d');
             const strategyChart = new Chart(strategyCtx, {
-                type: 'radar',
+                type: 'bar',
                 data: {
-                    labels: ['Immediate Funds', 'Expertise & Networks', 'Speed of Execution', 'Flexibility', 'Long-term Alignment'],
+                    labels: ['Immediate Funds', 'Expertise', 'Speed'],
                     datasets: [
                         {
-                            label: 'Immediate Funds Strategy',
-                            data: [90, 40, 60, 50, 30],
-                            backgroundColor: 'rgba(255, 105, 0, 0.2)',
-                            borderColor: '#ff6900',
-                            pointBackgroundColor: '#ff6900'
+                            label: 'Capital Allocation (₹ Lakhs)',
+                            data: [22.5, 9, 6],
+                            backgroundColor: [
+                                'rgba(255, 105, 0, 0.7)',
+                                'rgba(0, 204, 153, 0.7)',
+                                'rgba(26, 26, 46, 0.7)'
+                            ],
+                            borderColor: [
+                                '#ff6900',
+                                '#00cc99',
+                                '#1a1a2e'
+                            ],
+                            borderWidth: 1
                         },
                         {
-                            label: 'Expertise Strategy',
-                            data: [40, 90, 30, 60, 80],
-                            backgroundColor: 'rgba(0, 204, 153, 0.2)',
-                            borderColor: '#00cc99',
-                            pointBackgroundColor: '#00cc99'
-                        },
-                        {
-                            label: 'Speed Strategy',
-                            data: [60, 30, 90, 70, 40],
-                            backgroundColor: 'rgba(26, 26, 46, 0.2)',
-                            borderColor: '#1a1a2e',
-                            pointBackgroundColor: '#1a1a2e'
-                        },
-                        {
-                            label: 'Ideal Strategy',
-                            data: [70, 80, 80, 85, 90],
-                            backgroundColor: 'rgba(255, 215, 0, 0.2)',
-                            borderColor: '#ffd700',
-                            pointBackgroundColor: '#ffd700',
-                            borderDash: [5, 5]
+                            label: 'Strategic Priority (1-10)',
+                            data: [8, 7, 6],
+                            backgroundColor: [
+                                'rgba(255, 105, 0, 0.3)',
+                                'rgba(0, 204, 153, 0.3)',
+                                'rgba(26, 26, 46, 0.3)'
+                            ],
+                            borderColor: [
+                                '#ff6900',
+                                '#00cc99',
+                                '#1a1a2e'
+                            ],
+                            borderWidth: 1,
+                            type: 'line',
+                            yAxisID: 'y1'
                         }
                     ]
                 },
@@ -1091,12 +1154,24 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
-                        r: {
-                            angleLines: {
-                                display: true
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Capital (₹ Lakhs)'
+                            }
+                        },
+                        y1: {
+                            position: 'right',
+                            beginAtZero: true,
+                            max: 10,
+                            title: {
+                                display: true,
+                                text: 'Strategic Priority'
                             },
-                            suggestedMin: 0,
-                            suggestedMax: 100
+                            grid: {
+                                drawOnChartArea: false
+                            }
                         }
                     }
                 }
